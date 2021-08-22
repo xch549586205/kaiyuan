@@ -5,6 +5,7 @@ import Demo from "./pages/demo";
 const routes = [
   {
     path: "/main",
+    title: "首页", //出现在顶部的导航栏
     children: [
       {
         path: "/",
@@ -14,6 +15,7 @@ const routes = [
   },
   {
     path: "/demo",
+    title: "演示", //出现在顶部的导航栏
     children: [
       {
         path: "/",

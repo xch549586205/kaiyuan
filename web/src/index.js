@@ -83,10 +83,11 @@ class Index extends React.PureComponent {
   render() {
     return (
       <div>
-        <NavBar />
         <Router
-          basename={process.env.NODE_ENV === "development" ? "" : "ticket"}
+        // basename={process.env.NODE_ENV === "development" ? "" : "ticket"}
         >
+          <NavBar />
+
           {routers.map((router, index) => {
             const {
               path,
