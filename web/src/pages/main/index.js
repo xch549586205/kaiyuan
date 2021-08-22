@@ -34,7 +34,7 @@ const Product = () => {
                     backgroundImage: `url(${isCurrentIndex ? currentBg : bg})`,
                     flex: isCurrentIndex ? 2 : 1,
                   }}
-                  onMouseOver={() => setCurrentIndex(index)}
+                  onMouseEnter={() => setCurrentIndex(index)}
                 ></div>
               );
             }
