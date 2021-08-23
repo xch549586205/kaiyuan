@@ -8,7 +8,6 @@ import icon4 from "./images/icon4.png";
 import currentBg from "./images/currentBg.png";
 import { productList } from "./productConfig";
 import style from "./index.less";
-
 const Product = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -20,7 +19,7 @@ const Product = () => {
         </div>
         <div className={style.content}>
           {productList.map(
-            ({ title, bg, icon, english, text, label }, index) => {
+            ({ title, bg, icon, english, detail, label }, index) => {
               const isCurrentIndex = index === currentIndex;
               return (
                 <div
@@ -35,7 +34,30 @@ const Product = () => {
                     flex: isCurrentIndex ? 2 : 1,
                   }}
                   onMouseEnter={() => setCurrentIndex(index)}
-                ></div>
+                >
+                  {!isCurrentIndex && (
+                    <div className={style.icon}>
+                      <img src={icon} alt="" />
+                      <p>{title}</p>
+                    </div>
+                  )}
+                  {isCurrentIndex && (
+                    <div className={style.currentContent}>
+                      <div className={style.title}>
+                        <div className={style.icon}>
+                          <img src={icon} alt="" />
+                        </div>
+                        <div className={style.titleText}>
+                          <div>{title}</div>
+                          <div className={style.english}>{english}</div>
+                        </div>
+                      </div>
+                      <div className={style.detail}>{detail}</div>
+
+                      <div className={style.label}></div>
+                    </div>
+                  )}
+                </div>
               );
             }
           )}
