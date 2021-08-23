@@ -1,16 +1,31 @@
 import React, { useState } from "react";
+import { Carousel } from "antd";
+
 import bigPic from "./images/big.jpg";
+import bigPic2 from "./images/big2.jpg";
 import superiorityPic from "./images/superiority.png";
 import icon1 from "./images/icon1.png";
 import icon2 from "./images/icon2.png";
 import icon3 from "./images/icon3.png";
 import icon4 from "./images/icon4.png";
 import currentBg from "./images/currentBg.png";
+import process from "./images/process.png";
 import { productList } from "./productConfig";
 import style from "./index.less";
+
+const PROCESS = () => {
+  return (
+    <div className={style.process}>
+      <div className={style.title}>
+        <span>PROCESS </span>/ 产品生产流程
+      </div>
+      <img src={process} alt="" width="100%" />
+    </div>
+  );
+};
+
 const Product = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
   return (
     <div className={style.product}>
       <div className={style.territory}>
@@ -19,7 +34,7 @@ const Product = () => {
         </div>
         <div className={style.content}>
           {productList.map(
-            ({ title, bg, icon, english, detail, label }, index) => {
+            ({ title, bg, icon, english, detail, labels }, index) => {
               const isCurrentIndex = index === currentIndex;
               return (
                 <div
@@ -31,7 +46,7 @@ const Product = () => {
                   }
                   style={{
                     backgroundImage: `url(${isCurrentIndex ? currentBg : bg})`,
-                    flex: isCurrentIndex ? 2 : 1,
+                    flex: isCurrentIndex ? 3 : 1,
                   }}
                   onMouseEnter={() => setCurrentIndex(index)}
                 >
@@ -54,7 +69,17 @@ const Product = () => {
                       </div>
                       <div className={style.detail}>{detail}</div>
 
-                      <div className={style.label}></div>
+                      <div className={style.labels}>
+                        {labels.map((label) => (
+                          <div key={label} className={style.label}>
+                            {label}
+                          </div>
+                        ))}
+                      </div>
+
+                      <a>
+                        <div className={style.more}>了解更多</div>
+                      </a>
                     </div>
                   )}
                 </div>
@@ -67,12 +92,29 @@ const Product = () => {
   );
 };
 
-const BigPic = () => (
-  <div
-    className={style.bigPic}
-    style={{ backgroundImage: `url(${bigPic})` }}
-  ></div>
-);
+const BigPic = () => {
+  const contentStyle = {
+    height: "31.25vw",
+    color: "#fff",
+    background: "#364d79",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100% 100%",
+  };
+  return (
+    <Carousel autoplay autoplaySpeed={3000} effect="fade">
+      <div>
+        <div style={contentStyle}>
+          <img src={bigPic} style={{ height: "100%" }} alt="" />
+        </div>
+      </div>
+      <div>
+        <div style={contentStyle}>
+          <img src={bigPic2} style={{ height: "100%" }} alt="" />
+        </div>
+      </div>
+    </Carousel>
+  );
+};
 
 const About = () => {
   const list = [
@@ -130,7 +172,9 @@ const Main = () => {
       <BigPic />
       <About />
       <Product />
+      <PROCESS />
     </div>
   );
 };
+
 export default Main;

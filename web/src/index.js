@@ -12,7 +12,9 @@ import routers from "./router";
 import { Provider } from "react-redux";
 import { configureStore, runSaga } from "./configureStore";
 import NavBar from "./components/Navbar";
+import Foot from "./components/Foot";
 
+import "antd/dist/antd.css";
 const store = configureStore();
 runSaga();
 //该组件通过递归的方式，将所有route中带有children路由的父路由进行解构,最终用createBasicRoute函数来渲染
@@ -129,6 +131,7 @@ class Index extends React.PureComponent {
               return createBasicRoute(router, index);
             }
           })}
+          <Foot />
         </Router>
       </div>
     );
