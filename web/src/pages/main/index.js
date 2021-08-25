@@ -32,61 +32,62 @@ const Product = () => {
         <div className={style.title}>
           <span>PRODUCT </span>/ 产品领域
         </div>
-        <div className={style.content}>
-          {productList.map(
-            ({ title, bg, icon, english, detail, labels }, index) => {
-              const isCurrentIndex = index === currentIndex;
-              return (
-                <div
-                  key={title}
-                  className={
-                    isCurrentIndex
-                      ? style.productContent + " " + style.productContent
-                      : style.productContent
-                  }
-                  style={{
-                    backgroundImage: `url(${isCurrentIndex ? currentBg : bg})`,
-                    flex: isCurrentIndex ? 3 : 1,
-                  }}
-                  onMouseEnter={() => setCurrentIndex(index)}
-                >
-                  {!isCurrentIndex && (
-                    <div className={style.icon}>
-                      <img src={icon} alt="" />
-                      <p>{title}</p>
-                    </div>
-                  )}
-                  {isCurrentIndex && (
-                    <div className={style.currentContent}>
-                      <div className={style.title}>
-                        <div className={style.icon}>
-                          <img src={icon} alt="" />
-                        </div>
-                        <div className={style.titleText}>
-                          <div>{title}</div>
-                          <div className={style.english}>{english}</div>
-                        </div>
+        <a>
+          <div className={style.content}>
+            {productList.map(
+              ({ title, bg, icon, english, detail, labels }, index) => {
+                const isCurrentIndex = index === currentIndex;
+                return (
+                  <div
+                    key={title}
+                    className={
+                      isCurrentIndex
+                        ? style.productContent + " " + style.productContent
+                        : style.productContent
+                    }
+                    style={{
+                      backgroundImage: `url(${
+                        isCurrentIndex ? currentBg : bg
+                      })`,
+                      flex: isCurrentIndex ? 3 : 1,
+                    }}
+                    onMouseEnter={() => setCurrentIndex(index)}
+                  >
+                    {!isCurrentIndex && (
+                      <div className={style.icon}>
+                        <img src={icon} alt="" />
+                        <p>{title}</p>
                       </div>
-                      <div className={style.detail}>{detail}</div>
-
-                      <div className={style.labels}>
-                        {labels.map((label) => (
-                          <div key={label} className={style.label}>
-                            {label}
+                    )}
+                    {isCurrentIndex && (
+                      <div className={style.currentContent}>
+                        <div className={style.title}>
+                          <div className={style.icon}>
+                            <img src={icon} alt="" />
                           </div>
-                        ))}
-                      </div>
+                          <div className={style.titleText}>
+                            <div>{title}</div>
+                            <div className={style.english}>{english}</div>
+                          </div>
+                        </div>
+                        <div className={style.detail}>{detail}</div>
 
-                      <a>
+                        <div className={style.labels}>
+                          {labels.map((label) => (
+                            <div key={label} className={style.label}>
+                              {label}
+                            </div>
+                          ))}
+                        </div>
                         <div className={style.more}>了解更多</div>
-                      </a>
-                    </div>
-                  )}
-                </div>
-              );
-            }
-          )}
-        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+            )}
+          </div>
+        </a>
       </div>
     </div>
   );

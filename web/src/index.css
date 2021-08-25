@@ -68,13 +68,4 @@ svg:not(:root) {
 .scale {
   position: relative;
 }
-.scale:after {
-  content: "";
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  border-bottom: 1px solid #8e8e8e;
-  -webkit-transform: scaleY(0.5);
-  -webkit-transform-origin: 0 0;
-}
+

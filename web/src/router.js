@@ -1,6 +1,7 @@
 //闯关
 import Main from "./pages/main";
-import Demo from "./pages/demo";
+import Culture from "./pages/culture";
+import Solution from "./pages/solution";
 
 const routes = [
   {
@@ -14,12 +15,22 @@ const routes = [
     ],
   },
   {
-    path: "/demo",
-    title: "演示", //出现在顶部的导航栏
+    path: "/culture",
+    title: "开源文化", //出现在顶部的导航栏
     children: [
       {
         path: "/",
-        component: Demo,
+        component: Culture,
+      },
+    ],
+  },
+  {
+    path: "/solution",
+    title: "产品解决方案", //出现在顶部的导航栏
+    children: [
+      {
+        path: "/",
+        component: Solution,
       },
     ],
   },

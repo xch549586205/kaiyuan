@@ -1,0 +1,64 @@
+.culture {
+    .bg {
+        background-repeat: no-repeat;
+        background-size: 100%;
+        height: 20.83333vw;
+    }
+
+    .list {
+        width: 66.666667%;
+        display: flex;
+        margin: 105px auto 0 auto;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height: 31.25vw;
+
+        >div {
+            flex: 1;
+            height: 100%;
+            padding-top: 8.35vw;
+            padding-left: 27px;
+
+            .title {
+                color: rgba(0, 0, 0, 1);
+                font-size: 20px;
+                font-weight: bold;
+                padding-bottom: 8px;
+                display: inline-block;
+                border-bottom: 2px solid rgb(40, 105, 180);
+            }
+
+            .english {
+                color: rgba(56, 56, 56, 1);
+                font-size: 16px;
+                margin-top: 20px;
+            }
+
+            .text {
+                color: rgba(255, 255, 255, 1);
+                font-size: 17px;
+                margin-top: 60px;
+                padding-right: 30px;
+                letter-spacing: 0.85px
+            }
+        }
+
+        .active {
+            background: rgba(2, 25, 52, 0.6);
+            color: #fff;
+
+            .title {
+                border-color: rgb(223, 220, 72);
+            }
+
+            .title,
+            .english {
+                color: #fff;
+            }
+        }
+        .active:hover{
+            transition: all 0.4s linear;
+
+        }
+    }
+}
