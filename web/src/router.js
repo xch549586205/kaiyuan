@@ -2,6 +2,7 @@
 import Main from "./pages/main";
 import Culture from "./pages/culture";
 import Solution from "./pages/solution";
+import TechSupport from "./pages/techSupport";
 
 const routes = [
   {
@@ -34,6 +35,17 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/techSupport",
+    title: "技术支持", //出现在顶部的导航栏
+    children: [
+      {
+        path: "/",
+        component: TechSupport,
+      },
+    ],
+  },
+
   {
     path: "/",
     redirect: "main",
