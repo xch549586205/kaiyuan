@@ -3,6 +3,7 @@ import Main from "./pages/main";
 import Culture from "./pages/culture";
 import Solution from "./pages/solution";
 import TechSupport from "./pages/techSupport";
+import ContactUs from "./pages/contactUs";
 
 const routes = [
   {
@@ -32,6 +33,7 @@ const routes = [
       {
         path: "/",
         component: Solution,
+        param: "index",
       },
     ],
   },
@@ -45,7 +47,16 @@ const routes = [
       },
     ],
   },
-
+  {
+    path: "/contactUs",
+    title: "联系我们", //出现在顶部的导航栏
+    children: [
+      {
+        path: "/",
+        component: ContactUs,
+      },
+    ],
+  },
   {
     path: "/",
     redirect: "main",

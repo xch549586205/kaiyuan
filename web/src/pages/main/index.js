@@ -12,7 +12,8 @@ import currentBg from "./images/currentBg.png";
 import process from "./images/process.png";
 import { productList } from "./productConfig";
 import style from "./index.less";
-
+import { Anchor } from "antd";
+const { Link } = Anchor;
 const PROCESS = () => {
   return (
     <div className={style.process}>
@@ -24,7 +25,7 @@ const PROCESS = () => {
   );
 };
 
-const Product = () => {
+const Product = ({ history }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   return (
     <div className={style.product}>
@@ -79,7 +80,28 @@ const Product = () => {
                             </div>
                           ))}
                         </div>
-                        <div className={style.more}>了解更多</div>
+                        {/* <div
+                          className={style.more}
+                          onClick={() =>
+                            history.push(`/solution?index=${index}`)
+                          }
+                        >
+                          了解更多
+                        </div> */}
+                        <Anchor
+                          affix={false}
+                          onClick={() =>
+                            history.push(`/solution?index=${index}`)
+                          }
+                          className={style.more}
+                        >
+                          <Link
+                            href="#more"
+                            title="了解更多"
+                            onClick={() => setCurrentIndex(currentIndex - 1)}
+                            className={currentIndex === 0 ? style.disable : ""}
+                          />
+                        </Anchor>
                       </div>
                     )}
                   </div>
@@ -167,12 +189,12 @@ const About = () => {
   );
 };
 
-const Main = () => {
+const Main = ({ history }) => {
   return (
     <div className={style.mainPage}>
       <BigPic />
       <About />
-      <Product />
+      <Product history={history} />
       <PROCESS />
     </div>
   );

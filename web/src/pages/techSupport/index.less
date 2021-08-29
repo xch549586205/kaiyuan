@@ -4,4 +4,150 @@
         background-size: 100%;
         height: 20.83333vw;
     }
+
+    .content {
+        width: 66.666667%;
+        margin: 78px auto 0 auto;
+
+        .title {
+            display: flex;
+
+            >div:nth-child(1) {
+                width: 15%;
+                color: rgba(0, 0, 0, 1);
+                font-size: 26px;
+                text-align: left;
+                font-weight: bold;
+                padding-bottom: 43px;
+                border-bottom: 2px solid rgba(40, 105, 180, 1);
+
+                span,
+                span a,
+                span div {
+                    font-size: 26px;
+                    color: rgba(40, 105, 180, 1);
+                    white-space: nowrap;
+                    overflow: auto !important;
+                }
+            }
+
+            >div:nth-child(2) {
+                margin-left: 17px;
+                padding-bottom: 43px;
+                border-bottom: 2px solid rgba(229, 229, 229, 1);
+                flex-grow: 1;
+            }
+        }
+
+        .list {
+            .box {
+                padding-bottom: 20px;
+                padding-top: 60px;
+                border-bottom: 1px solid rgba(221, 221, 221, 1);
+                display: flex;
+                width: 100%;
+
+                >div:nth-child(1) {
+                    width: 15%;
+
+                    img {
+                        width: 8.3333333vw;
+                        height: 4.6875vw;
+                    }
+                }
+
+                >div:nth-child(2) {
+                    // flex-grow: 1;
+                    width: calc(85% - 17px);
+
+                    .title1 {
+                        display: flex;
+                        margin-top: -5px;
+                        height: 30px;
+
+                        >p {
+                            color: rgba(80, 80, 80, 1);
+                            font-size: 20px;
+                            font-weight: bold;
+                        }
+
+                        >div {
+                            img {
+                                width: 32px;
+                                height: 32px;
+                            }
+                        }
+
+                    }
+
+                    .text {
+                        margin-top: 20px;
+                        height: 48px;
+                        color: rgba(80, 80, 80, 1);
+                        font-size: 16px;
+                        line-height: 24px;
+                        text-align: left;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+
+        .detail {
+            .detailContent {
+                white-space: pre-wrap;
+                color: rgba(80, 80, 80, 1);
+                padding-top: 37px;
+                font-size: 13px;
+            }
+        }
+
+        .foot {
+            width: 25%;
+            height: 40px;
+            margin: 163px auto 0 auto;
+            display: flex;
+
+            .footSub {
+                width: 33.3333%;
+
+                >div {
+                    overflow: hidden;
+
+                    >div:nth-child(1) {
+                        display: none;
+                    }
+
+                    >div {
+                        line-height: 40px;
+                        width: 100px;
+                        height: 40px;
+                        background-color: rgba(40, 105, 180, 1);
+                        border-radius: 6px;
+                        font-size: 14px;
+                        text-align: center;
+                        padding: 0;
+                        margin: 0 12.5px;
+
+                        >a {
+                            color: #fff;
+                        }
+
+                    }
+
+                }
+
+                >div .disable {
+                    cursor: not-allowed;
+                    pointer-events: none;
+                    opacity: 0.6;
+                }
+            }
+
+
+        }
+    }
 }
