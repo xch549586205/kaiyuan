@@ -8,6 +8,8 @@ import ContactUs from "./pages/contactUs";
 const routes = [
   {
     path: "/main",
+    component: Main,
+
     title: "首页", //出现在顶部的导航栏
     children: [
       {
@@ -18,6 +20,8 @@ const routes = [
   },
   {
     path: "/culture",
+    component: Main,
+
     title: "开源文化", //出现在顶部的导航栏
     children: [
       {
@@ -28,6 +32,8 @@ const routes = [
   },
   {
     path: "/solution",
+    component: Main,
+
     title: "产品解决方案", //出现在顶部的导航栏
     children: [
       {
@@ -39,6 +45,8 @@ const routes = [
   },
   {
     path: "/techSupport",
+    component: Main,
+
     title: "技术支持", //出现在顶部的导航栏
     children: [
       {
@@ -49,6 +57,7 @@ const routes = [
   },
   {
     path: "/contactUs",
+    component: Main,
     title: "联系我们", //出现在顶部的导航栏
     children: [
       {
@@ -60,6 +69,7 @@ const routes = [
   {
     path: "/",
     redirect: "main",
+    component: () => <div></div>,
   },
 ];
 

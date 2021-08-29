@@ -63,7 +63,7 @@ const createBasicRoute = (route, index) => {
   }
   return (
     <Route
-      exact
+      // exact
       key={index}
       path={path}
       render={(props) => {
@@ -84,10 +84,10 @@ class Index extends React.PureComponent {
   }
   render() {
     return (
-      <div>
-        <Router
-        // basename={process.env.NODE_ENV === "development" ? "" : "ticket"}
-        >
+      <Router
+      // basename={process.env.NODE_ENV === "development" ? "" : "main"}
+      >
+        <div>
           <NavBar />
 
           {routers.map((router, index) => {
@@ -132,8 +132,8 @@ class Index extends React.PureComponent {
             }
           })}
           <Foot />
-        </Router>
-      </div>
+        </div>
+      </Router>
     );
   }
 }
