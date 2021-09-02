@@ -127,4 +127,112 @@
             }
         }
     }
+
+
+    .content {
+        width: 66.666667%;
+        margin: 78px auto 0 auto;
+
+        .title {
+            display: flex;
+
+            >div:nth-child(1) {
+                width: 15%;
+                color: rgba(0, 0, 0, 1);
+                font-size: 26px;
+                text-align: left;
+                font-weight: bold;
+                padding-bottom: 43px;
+                // border-bottom: 2px solid rgba(40, 105, 180, 1);
+
+                span,
+                span a,
+                span div {
+                    font-size: 22px;
+                    color: rgba(40, 105, 180, 1);
+                    white-space: nowrap;
+                    overflow: auto !important;
+                }
+            }
+
+            >div:nth-child(2) {
+                margin-left: 17px;
+                padding-bottom: 43px;
+                border-bottom: 2px solid rgba(229, 229, 229, 1);
+                flex-grow: 1;
+            }
+        }
+
+        .detail {
+            display: flex;
+            white-space: pre-line;
+            line-height: 30px;
+
+            .title {
+                padding: 45px 0;
+
+                width: 15%;
+                border-top: 2px solid rgba(40, 105, 180, 1);
+
+            }
+
+            .info {
+                border-top: 2px solid rgba(229, 229, 229, 1);
+
+                padding: 45px 0;
+                margin-left: 17px;
+                padding-right: 29%;
+                width: calc(85% - 17px);
+                padding-left: 10px;
+            }
+        }
+
+        .foot {
+            width: 400px;
+            height: 40px;
+            margin: 163px auto 0 auto;
+            display: flex;
+
+            .footSub {
+
+                >a {
+                    color: #fff;
+                }
+
+                >div {
+                    // overflow: hidden;
+
+                    >div:nth-child(1) {
+                        display: none;
+                    }
+
+                    >div {
+                        line-height: 40px;
+                        width: 100px;
+                        height: 40px;
+                        background-color: rgba(40, 105, 180, 1);
+                        border-radius: 6px;
+                        font-size: 14px;
+                        text-align: center;
+                        padding: 0;
+                        margin: 0 12.5px;
+
+                        >a {
+                            color: #fff;
+                        }
+
+                    }
+
+                }
+
+                >div .disable {
+                    cursor: not-allowed;
+                    pointer-events: none;
+                    opacity: 0.6;
+                }
+            }
+
+
+        }
+    }
 }

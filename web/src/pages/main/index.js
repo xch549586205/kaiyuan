@@ -12,6 +12,7 @@ import currentBg from "./images/currentBg.png";
 import process from "./images/process.png";
 import { productList } from "./productConfig";
 import style from "./index.less";
+
 import { Anchor } from "antd";
 const { Link } = Anchor;
 const PROCESS = () => {
