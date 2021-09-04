@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import { configureStore, runSaga } from "./configureStore";
 import NavBar from "./components/Navbar";
 import Foot from "./components/Foot";
+import { Row, Col } from "antd";
 
 import "antd/dist/antd.css";
 const store = configureStore();
@@ -89,48 +90,51 @@ class Index extends React.PureComponent {
       >
         <div>
           <NavBar />
-
-          {routers.map((router, index) => {
-            const {
-              path,
-              //  component: RouteComponent,
-              children,
-            } = router;
-            if (children) {
-              return (
-                <Route
-                  // exact
-                  key={index}
-                  path={path}
-                  render={(props) => {
-                    let redirectPath = null;
-                    return (
-                      // <RouteComponent {...props}>
-                      <Switch timeout={200}>
-                        {children.map((child, index2) => {
-                          const { path: childPath, redirect } = child;
-                          if (redirect) {
-                            redirectPath = childPath;
-                          }
-                          return createFixRoute(
-                            { ...child, path: path + childPath },
-                            `${index}-${index2}`
-                          );
-                        })}
-                        <Redirect
-                          from={`${path}`}
-                          to={`${path}${redirectPath || children[0].path}`}
-                        />
-                      </Switch>
-                      // </RouteComponent>
-                    );
-                  }}
-                />
-              );
-            } else {
-              return createBasicRoute(router, index);
-            }
-          })}
+          <Row style={{ background:"rgb(248,248,248)" }}>
+            <Col span={22} sm={16} style={{ margin: "0 auto",background:"rgb(248,248,248)" }}>
+              {routers.map((router, index) => {
+                const {
+                  path,
+                  //  component: RouteComponent,
+                  children,
+                } = router;
+                if (children) {
+                  return (
+                    <Route
+                      // exact
+                      key={index}
+                      path={path}
+                      render={(props) => {
+                        let redirectPath = null;
+                        return (
+                          // <RouteComponent {...props}>
+                          <Switch timeout={200}>
+                            {children.map((child, index2) => {
+                              const { path: childPath, redirect } = child;
+                              if (redirect) {
+                                redirectPath = childPath;
+                              }
+                              return createFixRoute(
+                                { ...child, path: path + childPath },
+                                `${index}-${index2}`
+                              );
+                            })}
+                            <Redirect
+                              from={`${path}`}
+                              to={`${path}${redirectPath || children[0].path}`}
+                            />
+                          </Switch>
+                          // </RouteComponent>
+                        );
+                      }}
+                    />
+                  );
+                } else {
+                  return createBasicRoute(router, index);
+                }
+              })}
+            </Col>
+          </Row>
           <Foot />
         </div>
       </Router>
