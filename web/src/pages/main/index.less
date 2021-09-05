@@ -43,52 +43,50 @@
                 }
 
                 .right {
+                    margin-left: auto;
                     height: 280px;
-                    background-repeat: no-repeat;
-                    background-size: 100% 100%;
+                    position: relative;
 
+                    img {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
             }
         }
     }
 
     .about2 {
-        .about2Content {
-            display: flex;
-            padding-bottom: 55px;
+        padding-bottom: 55px;
+        text-align: center;
+        width: 100%;
+
+        .iconSrc {
+            width: 100px;
+            height: 100px;
             margin: 0 auto;
 
-            >div {
-                width: 45%;
-                text-align: center;
-
-                .iconSrc {
-                    width: 5.2vw;
-                    height: 5.2vw;
-                    margin: 0 auto;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-
-                .title {
-                    margin-top: 30px;
-                    color: rgba(56, 56, 56, 1);
-                    font-size: 20px;
-
-                }
-
-                .text {
-                    margin-top: 6px;
-                    color: rgba(128, 128, 128, 1);
-                    font-size: 16px;
-                }
+            img {
+                width: 100%;
+                height: 100%;
             }
         }
 
+        .title {
+            margin-top: 30px;
+            color: rgba(56, 56, 56, 1);
+            font-size: 20px;
+
+        }
+
+        .text {
+            margin-top: 6px;
+            color: rgba(128, 128, 128, 1);
+            font-size: 16px;
+        }
     }
+
 
     .product {
         background: #fff;
@@ -109,11 +107,13 @@
             }
 
             .content {
-                background: #000;
+                // background: #000;
                 margin-top: 74px;
-
                 width: 100%;
-                display: flex;
+
+                >div {
+                    // margin: 0 auto;
+                }
 
                 .productContent {
                     flex: 1;
@@ -145,7 +145,7 @@
                     }
 
                     .currentContent {
-                        padding: 89px 10% 55px 10%;
+                        padding: 15% 10% 8% 10%;
                         width: 100%;
                         position: relative;
 
@@ -183,8 +183,7 @@
                             margin-top: 40px;
                             color: #fff;
                             font-size: 14px;
-                            line-height: 200%;
-                            padding-right: 15%;
+                            line-height: 150%;
                             letter-spacing: 1px
                         }
 
@@ -213,7 +212,7 @@
                         .more {
                             position: absolute;
                             left: 10%;
-                            bottom: 55px;
+                            bottom: 50px;
                             width: 100px;
                             height: 40px;
                             color: #fff;
@@ -254,8 +253,8 @@
     }
 
     .process {
-        width: 61.46vw;
         margin: 0 auto;
+        white-space: nowrap;
 
         .title {
             color: rgba(0, 0, 0, 1);

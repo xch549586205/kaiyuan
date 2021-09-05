@@ -81,7 +81,7 @@ const createBasicRoute = (route, index) => {
 };
 class Index extends React.PureComponent {
   componentDidMount() {
-    // this.props.login();
+    console.log(this.props, 666);
   }
   render() {
     return (
@@ -90,51 +90,49 @@ class Index extends React.PureComponent {
       >
         <div>
           <NavBar />
-          <Row style={{ background:"rgb(248,248,248)" }}>
-            <Col span={22} sm={16} style={{ margin: "0 auto",background:"rgb(248,248,248)" }}>
-              {routers.map((router, index) => {
-                const {
-                  path,
-                  //  component: RouteComponent,
-                  children,
-                } = router;
-                if (children) {
-                  return (
-                    <Route
-                      // exact
-                      key={index}
-                      path={path}
-                      render={(props) => {
-                        let redirectPath = null;
-                        return (
-                          // <RouteComponent {...props}>
-                          <Switch timeout={200}>
-                            {children.map((child, index2) => {
-                              const { path: childPath, redirect } = child;
-                              if (redirect) {
-                                redirectPath = childPath;
-                              }
-                              return createFixRoute(
-                                { ...child, path: path + childPath },
-                                `${index}-${index2}`
-                              );
-                            })}
-                            <Redirect
-                              from={`${path}`}
-                              to={`${path}${redirectPath || children[0].path}`}
-                            />
-                          </Switch>
-                          // </RouteComponent>
-                        );
-                      }}
-                    />
-                  );
-                } else {
-                  return createBasicRoute(router, index);
-                }
-              })}
-            </Col>
-          </Row>
+
+          {routers.map((router, index) => {
+            const {
+              path,
+              //  component: RouteComponent,
+              children,
+            } = router;
+            if (children) {
+              return (
+                <Route
+                  // exact
+                  key={index}
+                  path={path}
+                  render={(props) => {
+                    let redirectPath = null;
+                    return (
+                      // <RouteComponent {...props}>
+                      <Switch timeout={200}>
+                        {children.map((child, index2) => {
+                          const { path: childPath, redirect } = child;
+                          if (redirect) {
+                            redirectPath = childPath;
+                          }
+                          return createFixRoute(
+                            { ...child, path: path + childPath },
+                            `${index}-${index2}`
+                          );
+                        })}
+                        <Redirect
+                          from={`${path}`}
+                          to={`${path}${redirectPath || children[0].path}`}
+                        />
+                      </Switch>
+                      // </RouteComponent>
+                    );
+                  }}
+                />
+              );
+            } else {
+              return createBasicRoute(router, index);
+            }
+          })}
+
           <Foot />
         </div>
       </Router>
