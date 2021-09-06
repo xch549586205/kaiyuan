@@ -41,7 +41,7 @@ const PROCESS = () => {
 };
 
 const Product = ({ history }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(IsPhone() ? -1 : 0);
 
   return (
     <div className={style.product}>
@@ -56,10 +56,12 @@ const Product = ({ history }) => {
                 const isCurrentIndex = index === currentIndex;
                 return (
                   <Col
-                    span={isCurrentIndex ? 24 : 8}
+                    span={8}
                     md={isCurrentIndex ? 9 : 3}
                     onMouseOver={() => !IsPhone() && setCurrentIndex(index)}
-                    onClick={() => IsPhone() && setCurrentIndex(index)}
+                    onClick={() =>
+                      IsPhone() && history.push(`/solution?index=${index}`)
+                    }
                   >
                     <div
                       key={title}
@@ -198,7 +200,7 @@ const About = () => {
       <div className={style.about2}>
         <Row>
           {list.map(({ title, text, iconSrc }) => (
-            <Col span={24} md={6}>
+            <Col span={12} md={6}>
               <div key={title}>
                 <div className={style.iconSrc}>
                   <img src={iconSrc} alt={title} />
