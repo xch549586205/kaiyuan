@@ -6,40 +6,45 @@ import currentIconBg from "./images/currentIconBg.png";
 import { Tooltip } from "antd";
 import style from "./index.less";
 import { Anchor } from "antd";
+import Content from "../../components/Content";
+import { Row, Col } from "antd";
+
 const { Link } = Anchor;
 const Foot = ({ setCurrentIndex, currentIndex, list }) => (
-  <div className={style.foot}>
-    <Anchor
-      affix={false}
-      onClick={() => setCurrentIndex(currentIndex - 1)}
-      className={style.footSub}
-    >
-      <Link
-        href="#detail"
-        title="上一个"
+  <div style={{ display: "flex" }}>
+    <div className={style.foot} style={{ margin: "50px  auto 0 auto" }}>
+      <Anchor
+        affix={false}
         onClick={() => setCurrentIndex(currentIndex - 1)}
-        className={currentIndex === 0 ? style.disable : ""}
-      />
-    </Anchor>
-    <Anchor
-      affix={false}
-      onClick={() => setCurrentIndex(-1)}
-      className={style.footSub}
-    >
-      <Link href="#detail" title="返回" />
-    </Anchor>
-    <Anchor
-      className={style.footSub}
-      affix={false}
-      onClick={() => setCurrentIndex(currentIndex + 1)}
-    >
-      <Link
-        href="#detail"
-        title="下一个"
+        className={style.footSub}
+      >
+        <Link
+          href="#detail"
+          title="上一个"
+          onClick={() => setCurrentIndex(currentIndex - 1)}
+          className={currentIndex === 0 ? style.disable : ""}
+        />
+      </Anchor>
+      <Anchor
+        affix={false}
+        onClick={() => setCurrentIndex(-1)}
+        className={style.footSub}
+      >
+        <Link href="#detail" title="返回" />
+      </Anchor>
+      <Anchor
+        className={style.footSub}
+        affix={false}
         onClick={() => setCurrentIndex(currentIndex + 1)}
-        className={currentIndex === list.length - 1 ? style.disable : ""}
-      />
-    </Anchor>
+      >
+        <Link
+          href="#detail"
+          title="下一个"
+          onClick={() => setCurrentIndex(currentIndex + 1)}
+          className={currentIndex === list.length - 1 ? style.disable : ""}
+        />
+      </Anchor>
+    </div>
   </div>
 );
 
@@ -66,82 +71,92 @@ const Solution = ({ history }) => {
   return (
     <div className={style.solution}>
       <div className={style.bg} style={{ backgroundImage: `url(${bg})` }}></div>
-      {!isDetail && (
-        <div className={style.list} id="more">
-          {list.map(({ title, english, text, icon }, index) => (
-            <div
-              className={currentIndex === index ? style.active : ""}
-              onClick={() => setCurrentIndex(index)}
-              key={"solution" + index}
-            >
-              <a>
-                <div className={style.link}>
-                  <div className={style.iconTitle}>
-                    <div className={style.icon}>
-                      <div
-                        className={style.iconBg}
-                        style={{
-                          backgroundImage: `url(${
-                            currentIndex === index ? currentIconBg : iconBg
-                          })`,
-                        }}
-                      >
-                        <img src={icon} alt="" />
+      <Content style={{ background: "#fff" }}>
+        {!isDetail && (
+          <Row className={style.list} id="more">
+            {list.map(({ title, icon }, index) => (
+              <Col
+                span={8}
+                md={4}
+                className={currentIndex === index ? style.active : ""}
+              >
+                <div
+                  className={currentIndex === index ? style.active : ""}
+                  onClick={() => setCurrentIndex(index)}
+                  key={"solution" + index}
+                >
+                  <a>
+                    <div className={style.link}>
+                      <div className={style.iconTitle}>
+                        <div className={style.icon}>
+                          <div
+                            className={style.iconBg}
+                            style={{
+                              backgroundImage: `url(${
+                                currentIndex === index ? currentIconBg : iconBg
+                              })`,
+                            }}
+                          >
+                            <img src={icon} alt="" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className={style.title}>
+                        <span>{title}</span>
                       </div>
                     </div>
-                  </div>
-                  <div className={style.title}>
-                    <span>{title}</span>
-                  </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-          ))}
-        </div>
-      )}
-      {!isDetail && (
-        <div className={style.detailList}>
-          {list[currentIndex].detailList.map(
-            ({ title, subTitle, text }, index) => (
-              <div
-                className={style.detail}
-                key={"detailList" + index}
-                onClick={() => setDetailIndex(index)}
-              >
-                <div>
-                  <div className={style.title}>{title}</div>
-                  <div className={style.subTitle}>{subTitle}</div>
-                  <div className={style.text}>
-                    <Tooltip title={text}>
-                      <a>{text}</a>
-                    </Tooltip>
+              </Col>
+            ))}
+          </Row>
+        )}
+        {!isDetail && (
+          <Row className={style.detailList}>
+            {list[currentIndex].detailList.map(
+              ({ title, subTitle, text }, index) => (
+                <Col
+                  span={24}
+                  md={6}
+                  className={style.detail}
+                  key={"detailList" + index}
+                  onClick={() => setDetailIndex(index)}
+                >
+                  <div>
+                    <div className={style.title}>{title}</div>
+                    <div className={style.subTitle}>{subTitle}</div>
+                    <div className={style.text}>
+                      <Tooltip title={text}>
+                        <a>{text}</a>
+                      </Tooltip>
+                    </div>
                   </div>
-                </div>
+                </Col>
+              )
+            )}
+          </Row>
+        )}
+        {isDetail && (
+          <div className={style.content}>
+            <div className={style.title} id="detail">
+              <div>
+                <span>{detailInfo.subTitle}</span>
               </div>
-            )
-          )}
-        </div>
-      )}
-      {isDetail && (
-        <div className={style.content}>
-          <div className={style.title} id="detail">
-            <div>
-              <span>{detailInfo.subTitle}</span>
             </div>
+            {detailInfo.detail.map((detail) => (
+              <div className={style.detail}>
+                <div className={style.title}>{detail.title}</div>
+                <div className={style.info}>{detail.info}</div>
+              </div>
+            ))}
+            <Foot
+              setCurrentIndex={setDetailIndex}
+              currentIndex={detailIndex}
+              list={list[currentIndex].detailList}
+            />
           </div>
-          {detailInfo.detail.map((detail) => (
-            <div className={style.detail}>
-              <div className={style.title}>{detail.title}</div>
-              <div className={style.info}>{detail.info}</div>
-            </div>
-          ))}
-          <Foot
-            setCurrentIndex={setDetailIndex}
-            currentIndex={detailIndex}
-            list={list[currentIndex].detailList}
-          />
-        </div>
-      )}
+        )}
+      </Content>
     </div>
   );
 };

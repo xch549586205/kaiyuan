@@ -1,23 +1,77 @@
-.navbar {
-    height: 70px !important;
-    line-height: 70px !important;
+.phoneNav {
+    height: 6.25vh !important;
+    line-height: 6.25vh !important;
     background-color: rgba(255, 255, 255, 1) !important;
     width: 100%;
+    display: flex;
 
-    >ul {
-        background-color: rgba(255, 255, 255, 1) !important;
-        margin-left: 45.729vw !important;
+    >div {
+        >ul {
+            height: 6.25vh !important;
+            line-height: 6.25vh !important;
+            background-color: rgba(255, 255, 255, 1) !important;
+            margin: 0 !important;
+
+
+        }
     }
 
     .logo {
         height: 100%;
         display: flex;
-        float: left;
-        margin-left: 15px !important;
 
         img {
-            margin: auto;
-            width: 55px !important;
+            margin: auto 0;
+            width: 5vh !important;
+        }
+
+        .title {
+            height: 6.25vh !important;
+            line-height: 6.25vh !important;
+            margin-left: 1.09375vw;
+            color: rgba(40, 105, 180, 1);
+            text-align: left;
+
+            font-size: 1.5rem;
+        }
+    }
+
+    .right {
+        .nav {
+            text-align: center;
+            color: rgb(0, 0, 0);
+            min-width: 6.25vw;
+            font-size: 16px;
+        }
+    }
+}
+
+.navbar {
+    display: flex;
+    height: 70px !important;
+    line-height: 70px !important;
+    background-color: rgba(255, 255, 255, 1) !important;
+    width: 100%;
+
+    >div {
+        >ul {
+            height: 70px !important;
+            margin: 0 !important;
+            line-height: 70px !important;
+            background-color: rgba(255, 255, 255, 1) !important;
+
+
+        }
+    }
+
+
+    .logo {
+        height: 100%;
+        display: flex;
+
+        img {
+            margin: auto 0;
+            width: 5vh !important;
         }
 
         .title {
@@ -26,7 +80,7 @@
             margin-left: 1.09375vw;
             color: rgba(40, 105, 180, 1);
             text-align: left;
-            font-weight: bold;
+
             font-size: 28px;
         }
     }
@@ -36,7 +90,7 @@
             text-align: center;
             color: rgb(0, 0, 0);
             min-width: 6.25vw;
-            font-size:16px;
+            font-size: 16px;
         }
     }
 

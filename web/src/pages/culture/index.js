@@ -39,6 +39,8 @@ const Culture = () => {
       bg: bgd,
     },
   ];
+  const isPhone = window.innerWidth < 768;
+
   return (
     <div className={style.culture}>
       <div className={style.bg} style={{ backgroundImage: `url(${bg})` }}></div>
@@ -58,7 +60,7 @@ const Culture = () => {
                 <span className={style.title}>{title}</span>
                 <div className={style.english}>{english}</div>
                 {currentIndex === index && (
-                  <div className={style.text}>{text}</div>
+                  <div className={style.text} style={{fontSize:isPhone?"15px":"17px"}}>{text}</div>
                 )}
               </Col>
             ))}

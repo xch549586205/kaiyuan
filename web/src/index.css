@@ -21,7 +21,13 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
-p{margin: 0;}
+*{
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+}
 a img {
   border: 0;
 }
@@ -69,3 +75,26 @@ svg:not(:root) {
   position: relative;
 }
 
+.ant-anchor {
+  border: none;
+}
+/* .ant-layout-header .ant-menu {
+  margin-left: 45%;
+} */
+
+.ant-menu-item-selected {
+  background: rgba(0, 0, 0, 0.05);
+  border: none !important;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected::after,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected::after {
+  border: none !important;
+
+}

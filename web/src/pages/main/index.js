@@ -215,14 +215,15 @@ const About = () => {
     </div>
   );
 };
-
+const AA = Content(() => <About style={{ background: "#fff" }} />);
 const Main = ({ history }) => {
   return (
     <div className={style.mainPage}>
       <BigPic />
-      <Content>
-        <About />
-      </Content>
+      {/* <Content>
+       />
+      </Content> */}
+      <AA />
       <Content style={{ background: "#fff" }}>
         <Product history={history} />
         <PROCESS />
