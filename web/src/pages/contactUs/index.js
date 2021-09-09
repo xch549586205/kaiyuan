@@ -83,7 +83,7 @@ const TechSupport = () => {
         </div>
         <div className={style.link}>
           <p>技术支持与服务热线</p>
-          <Row style={{ width: isPhone ? "100%" : "46.1vw" }}>
+          <Row style={{ width: isPhone ? "100%" : "50vw" }}>
             <Col span={24} md={8}>
               <div>
                 <p>华南、华中地区</p>

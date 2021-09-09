@@ -15,20 +15,7 @@ import style from "./index.less";
 import { Anchor, Row, Col } from "antd";
 import Content from "../../components/Content";
 const { Link } = Anchor;
-function IsPhone() {
-  let userAgent = navigator.userAgent,
-    Agents = [
-      "Android",
-      "iPhone",
-      "SymbianOS",
-      "Windows Phone",
-      "iPad",
-      "iPod",
-    ];
-  return Agents.some((i) => {
-    return userAgent.includes(i);
-  });
-}
+
 const PROCESS = () => {
   return (
     <div className={style.process}>
@@ -41,8 +28,8 @@ const PROCESS = () => {
 };
 
 const Product = ({ history }) => {
-  const [currentIndex, setCurrentIndex] = useState(IsPhone() ? -1 : 0);
-
+  const isPhone = window.innerWidth < 768;
+  const [currentIndex, setCurrentIndex] = useState(isPhone ? -1 : 0);
   return (
     <div className={style.product}>
       <div className={style.territory}>
@@ -58,9 +45,9 @@ const Product = ({ history }) => {
                   <Col
                     span={8}
                     md={isCurrentIndex ? 9 : 3}
-                    onMouseOver={() => !IsPhone() && setCurrentIndex(index)}
+                    onMouseOver={() => !isPhone && setCurrentIndex(index)}
                     onClick={() =>
-                      IsPhone() && history.push(`/solution?index=${index}`)
+                      isPhone && history.push(`/solution?index=${index}`)
                     }
                   >
                     <div
@@ -173,7 +160,7 @@ const About = () => {
     { title: "专业", text: "通过质量管理体系认证", iconSrc: icon4 },
   ];
   return (
-    <div style={{ background: "rgba(248, 248, 248, 1)" }}>
+    <div>
       <div className={style.about}>
         <div className={style.aboutContent}>
           <div className={style.title}>
@@ -222,8 +209,6 @@ const Main = ({ history }) => {
       <BigPic />
       <Content>
         <About history={history} />
-      </Content>
-      <Content style={{ background: "#fff" }}>
         <Product history={history} />
         <PROCESS />
       </Content>
