@@ -45,7 +45,7 @@ const Culture = () => {
     <div className={style.culture}>
       <div className={style.bg} style={{ backgroundImage: `url(${bg})` }}></div>
       <a>
-        <Content>
+        <Content style={{background:"#fff"}}>
           <Row className={style.list}>
             {list.map(({ title, english, text, bg }, index) => (
               <Col

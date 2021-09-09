@@ -180,7 +180,7 @@ const About = () => {
             <span>ABOUT </span>/ 关于开源化工
           </div>
           <Row className={style.content}>
-            <Col span={24} md={12} className={style.left}>
+            <Col span={24} md={13} className={style.left}>
               <p>
                 基于20多年的经验，开源在技术上已稳步成长为金属加工液领域的领先者。所研发的产品具有极高润滑性的全合成切削液和多功能润滑油，已给业内知名厂商的生产工艺带来了持续改进与成本节约。实践证明润滑油产品对于成本控制于加工工艺稳定性具有持续的效果。通过我们的服务和资讯，我们的客户在金属加工液和相关领域的所有方面有效提高效率。
               </p>
@@ -191,7 +191,7 @@ const About = () => {
                 我们的宗旨是客户至上，且与原材料供应商直接合作，确保了原材料的小波动和每一位用户都能得到我们产品的健康与安全资料。为帮助您获得所需要的成套产品和服务，我们建立了一支技术全面、经验丰富的专业人员所组成的销售团队，力求量身打造，为您研发推出实用的产品。
               </p>
             </Col>
-            <Col span={24} md={11} className={style.right}>
+            <Col span={24} md={10} className={style.right}>
               <img src={superiorityPic} alt="" />
             </Col>
           </Row>
@@ -215,15 +215,14 @@ const About = () => {
     </div>
   );
 };
-const AA = Content(() => <About style={{ background: "#fff" }} />);
+
 const Main = ({ history }) => {
   return (
     <div className={style.mainPage}>
       <BigPic />
-      {/* <Content>
-       />
-      </Content> */}
-      <AA />
+      <Content>
+        <About history={history} />
+      </Content>
       <Content style={{ background: "#fff" }}>
         <Product history={history} />
         <PROCESS />

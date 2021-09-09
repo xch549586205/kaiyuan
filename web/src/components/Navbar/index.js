@@ -9,10 +9,11 @@ import React, { useState } from "react";
 
 const Navbar = (props) => {
   const [isPhone, setCurrentIndex] = useState(window.innerWidth < 768);
+  const [flag, setFlag] = useState(window.innerWidth > 1280);
 
   console.log(isPhone);
   return (
-    <Content style={{ background: "#fff" }} >
+    <Content style={{ background: "#fff" }}>
       <Row className={isPhone ? style.phoneNav : style.navbar}>
         <Col className={style.logo} span={16} md={12}>
           <img src={logo} alt="logo" />
