@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Carousel } from "antd";
 
 import bigPic from "./images/big.jpg";
@@ -28,8 +28,16 @@ const PROCESS = () => {
 };
 
 const Product = ({ history }) => {
-  const isPhone = window.innerWidth < 768;
-  const [currentIndex, setCurrentIndex] = useState(isPhone ? -1 : 0);
+  const [isPhone, setIsPhone] = useState(window.innerWidth < 768);
+  useEffect(() => {
+    setTimeout(()=>{
+      setIsPhone(window.innerWidth < 768);
+      setCurrentIndex(window.innerWidth < 768 ? -1 : 0);
+    },200)
+  }, []);
+  const [currentIndex, setCurrentIndex] = useState(
+    window.innerWidth < 768 ? -1 : 0
+  );
   return (
     <div className={style.product}>
       <div className={style.territory}>
@@ -90,13 +98,13 @@ const Product = ({ history }) => {
                             ))}
                           </div>
                           {/* <div
-                          className={style.more}
-                          onClick={() =>
-                            history.push(`/solution?index=${index}`)
-                          }
-                        >
-                          了解更多
-                        </div> */}
+                            className={style.more}
+                            onClick={() =>
+                              history.push(`/solution?index=${index}`)
+                            }
+                          >
+                            了解更多
+                          </div> */}
                           <Anchor
                             affix={false}
                             onClick={() =>
@@ -105,7 +113,7 @@ const Product = ({ history }) => {
                             className={style.more}
                           >
                             <Link
-                              href="#more"
+                              href="#solution"
                               title="了解更多"
                               onClick={() => setCurrentIndex(currentIndex - 1)}
                               className={

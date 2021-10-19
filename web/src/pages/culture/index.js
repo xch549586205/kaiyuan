@@ -45,7 +45,7 @@ const Culture = () => {
     <div className={style.culture}>
       <div className={style.bg} style={{ backgroundImage: `url(${bg})` }}></div>
       <a>
-        <Content style={{background:"#fff"}}>
+        <Content style={{ background: "#fff" }}>
           <Row className={style.list}>
             {list.map(({ title, english, text, bg }, index) => (
               <Col
@@ -54,14 +54,21 @@ const Culture = () => {
                 className={currentIndex === index ? style.active : ""}
                 onMouseEnter={() => setCurrentIndex(index)}
                 style={{
-                  backgroundImage: currentIndex !== index ? `url(${bg})` : "",
+                  backgroundImage: `url(${bg})`,
                 }}
               >
-                <span className={style.title}>{title}</span>
-                <div className={style.english}>{english}</div>
-                {currentIndex === index && (
-                  <div className={style.text} style={{fontSize:isPhone?"15px":"17px"}}>{text}</div>
-                )}
+                <div className={currentIndex === index ? style.activeBg : ""}>
+                  <span className={style.title}>{title}</span>
+                  <div className={style.english}>{english}</div>
+                  {currentIndex === index && (
+                    <div
+                      className={style.text}
+                      style={{ fontSize: isPhone ? "15px" : "17px" }}
+                    >
+                      {text}
+                    </div>
+                  )}
+                </div>
               </Col>
             ))}
           </Row>

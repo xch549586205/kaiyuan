@@ -30,7 +30,7 @@ const Foot = ({ setCurrentIndex, currentIndex }) => (
         className={style.footSub}
       >
         <Link
-          href="#title"
+          href="#techSupport"
           title="上一个"
           onClick={() => setCurrentIndex(currentIndex - 1)}
           className={currentIndex === 0 ? style.disable : ""}
@@ -41,7 +41,7 @@ const Foot = ({ setCurrentIndex, currentIndex }) => (
         onClick={() => setCurrentIndex(-1)}
         className={style.footSub}
       >
-        <Link href="#title" title="返回" />
+        <Link href="#techSupport" title="返回" />
       </Anchor>
       <Anchor
         className={style.footSub}
@@ -49,7 +49,7 @@ const Foot = ({ setCurrentIndex, currentIndex }) => (
         onClick={() => setCurrentIndex(currentIndex + 1)}
       >
         <Link
-          href="#title"
+          href="#techSupport"
           title="下一个"
           onClick={() => setCurrentIndex(currentIndex + 1)}
           className={currentIndex === list.length - 1 ? style.disable : ""}
@@ -69,7 +69,7 @@ const TechSupport = () => {
       <div className={style.bg} style={{ backgroundImage: `url(${bg})` }}></div>
       <Content style={{ background: "#fff" }}>
         <div className={style.content}>
-          <div className={style.title} id="title">
+          <div className={style.title} id="techSupport">
             {!isDetail && (
               <div>
                 <span>HELP</span>/ 技术支持
