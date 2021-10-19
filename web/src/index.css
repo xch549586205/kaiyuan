@@ -84,7 +84,7 @@ svg:not(:root) {
 
 .ant-menu-item-selected {
   background: rgba(0, 0, 0, 0.05);
-  border: none !important;
+  border-bottom: 2px solid rgb(40,105,480);
 }
 
 .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover::after,
