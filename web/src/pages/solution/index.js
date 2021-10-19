@@ -19,7 +19,7 @@ const Foot = ({ setCurrentIndex, currentIndex, list }) => (
         className={style.footSub}
       >
         <Link
-          href="#detail"
+          href="#solution"
           title="上一个"
           onClick={() => setCurrentIndex(currentIndex - 1)}
           className={currentIndex === 0 ? style.disable : ""}
@@ -30,7 +30,7 @@ const Foot = ({ setCurrentIndex, currentIndex, list }) => (
         onClick={() => setCurrentIndex(-1)}
         className={style.footSub}
       >
-        <Link href="#detail" title="返回" />
+        <Link href="#solution" title="返回" />
       </Anchor>
       <Anchor
         className={style.footSub}
@@ -38,7 +38,7 @@ const Foot = ({ setCurrentIndex, currentIndex, list }) => (
         onClick={() => setCurrentIndex(currentIndex + 1)}
       >
         <Link
-          href="#detail"
+          href="#solution"
           title="下一个"
           onClick={() => setCurrentIndex(currentIndex + 1)}
           className={currentIndex === list.length - 1 ? style.disable : ""}
@@ -73,7 +73,7 @@ const Solution = ({ history }) => {
       <div className={style.bg} style={{ backgroundImage: `url(${bg})` }}></div>
       <Content style={{ background: "#fff" }}>
         {!isDetail && (
-          <Row className={style.list} id="more">
+          <Row className={style.list} id="solution">
             {list.map(({ title, icon }, index) => (
               <Col
                 span={8}
@@ -138,7 +138,7 @@ const Solution = ({ history }) => {
         )}
         {isDetail && (
           <div className={style.content}>
-            <div className={style.title} id="detail">
+            <div className={style.title} id="solution">
               <div>
                 <span>{detailInfo.subTitle}</span>
               </div>

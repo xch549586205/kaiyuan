@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Switch,
   Redirect,
@@ -59,7 +59,14 @@ const createFixRoute = (route, index) => {
 
 const createBasicRoute = (route, index) => {
   const { path, component: Component, redirect, title } = route;
-  if (redirect && window.location.pathname === path) {
+  if (!window.location.href.split("#")[1]) {
+    return <Redirect to={redirect} />;
+  }
+  if (
+    redirect &&
+    window.location.href.split("#")[1].replaceAll("/", "") ===
+      path.replaceAll("/").replaceAll("#")
+  ) {
     return <Redirect to={redirect} />;
   }
   return (
