@@ -64,8 +64,12 @@ const createBasicRoute = (route, index) => {
   }
   if (
     redirect &&
-    window.location.href.split("#")[1].replaceAll("/", "") ===
-      path.replaceAll("/").replaceAll("#")
+    window.location.href
+      .split("#")[1]
+      .replace("/", "")
+      .replace("/", "")
+      .replace("/", "") ===
+      path.replace("#", "").replace("#", "").replace("#", "")
   ) {
     return <Redirect to={redirect} />;
   }
@@ -88,6 +92,9 @@ const createBasicRoute = (route, index) => {
 };
 class Index extends React.PureComponent {
   componentDidMount() {
+    window.onerror = function (message, url, lineNo, columnNo, error) {
+      alert(message, error);
+    };
     console.log(this.props, 666);
   }
   render() {
