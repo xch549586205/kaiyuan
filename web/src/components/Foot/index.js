@@ -54,7 +54,8 @@ const Foot = (props) => {
         </Row>
       </div>
       <div className={style.copyRight}>
-        粤公网安备 000000000000号 Copyright © 2021 东莞市开源化工材料有限公司
+        Copyright©2021东莞市开源化工材料有限公司{" "}
+        <a href="https://beian.miit.gov.cn">粤ICP备2021141312号-1</a>
       </div>
     </div>
   );
